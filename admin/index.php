@@ -1,12 +1,6 @@
 <?php 
     session_start();
     ob_start();
-    print_r($_SESSION['role']);
-    if (!isset($_SESSION['role']) || $_SESSION['role'] == 0  )
-    {
-        echo " Ban khong co quyen truy cap vap trang nay ";
-        die;
-    }
     include "../libraries/Database.php";
     include "../libraries/danhmuc.php";
     include "../libraries/sanpham.php";
