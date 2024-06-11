@@ -407,8 +407,8 @@ i.fa-light {
             </div>
         </div>
             <div class="search-wrapper">
-                <input id="txtSearch" type="text" id="search-input" placeholder="Tìm kiếm...">
-                <button onclick="window.location.href = '?controllers=Product&action=search&keyword document.getElementByid('txtSearch').value" id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button> 
+                <input id="txtSearch" type="text" id="search-input" placeholder="Tìm kiếm..." style="height: 44px;top: -15px;position: relative;width: 296px;">
+                <button onclick="window.location.href = '?controllers=Product&action=search&keyword document.getElementByid('txtSearch').value" id="search-button" style="right:1px;top:-16px;"><i class="fa-solid fa-magnifying-glass"></i></button> 
             </div>
             <div class="result-box">
 <!-- //public function search(){

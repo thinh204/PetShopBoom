@@ -78,7 +78,7 @@
                     <li class="header__navbar-item">
                         <a href="./PetShopBoom.php" target="_self" class="header__navbar-item-link--strong">TRANG CHỦ</a>
                     </li>
-                    <?php if(!isset($_SESSION['usersId'])) : ?>
+
                     <li class="header__navbar-item header__navbar-item--has-list">
                         <a href="" class="header__navbar-icon header__navbar-item-link">THÚ CƯNG<i class="fa-solid fa-chevron-down"></i></a>
                         <div class="header__list">
@@ -184,8 +184,5 @@
                     <li class="header__navbar-item header__navbar-item--strong">
                         <a href="./login.php" class="header__navbar-item--strong">ĐĂNG NHẬP</a>
                     </li>
-                <?php else: ?>
-                    
-                <?php endif; ?>
                 </ul>
             </nav>

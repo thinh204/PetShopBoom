@@ -76,5 +76,8 @@ class User {
         }
     }
 }
-// 1. git add .
-// 2. commit -u "Thinh first up"
+// PS D:\Xampp\htdocs\project1> git add .
+// PS D:\Xampp\htdocs\project1> git commit -m "Thinh secord" 
+// [main 9a62e5f] Thinh secord
+//  1 file changed, 2 insertions(+), 1 deletion(-)
+// PS D:\Xampp\htdocs\project1> git push -u origin main 

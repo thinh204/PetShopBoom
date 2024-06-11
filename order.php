@@ -1,72 +1,3 @@
-<?php
-    session_start();
-    // echo var_dump($_SESSION['giohang']);
-    
-    
-    if (!isset($_SESSION['giohang'])) {
-        $_SESSION['giohang'] = [];
-    }
-    
-    if(isset($_GET['del'])&&($_GET['del'] >= 0)) {
-        array_splice($_SESSION['giohang'], $_GET['del'], 1);
-    }
-
-    if(empty($_SESSION['giohang'])) {
-        header('location: cart.php');
-        exit();
-    }
-    
-    $ttgh = "";
-    $tong = 0;
-    $i = 0;
-    foreach ($_SESSION['giohang'] as $item) {
-        extract($item);
-
-        $gia_numeric = str_replace('.', '', $gia);
-        $gia_numeric = floatval($gia_numeric);
-
-        $tt= $soluong * $gia_numeric;
-
-        $gia_formatted = number_format($gia_numeric, 0, ',', '.');
-        $tt_formatted = number_format($tt, 0, ',', '.');
-
-        $tong += $tt;
-        $link = "cartproduct.php?del=" . $i;
-        $ttgh .= '<div class="gio-hang" id="gio-hang">
-                    <div class="item-gio-hang">
-                        <div class="image"> 
-                            <img src="./assets/Image/'.$img.'" alt=""> 
-                        </div> 
-                            <p class="tensp">'.$tensp.'</p> 
-                            <p class="id">ID: ' . $id . '</p>
-                                <div class="gia">
-                                    <span class="giagoc">'. $gia_formatted .'đ</span> 
-                                </div>
-                                <input type="type" class="soluong" value="'.$soluong.'"> 
-                            <p class="tongtien">'. $tt_formatted .'đ</p> 
-                        <div class="icon"> 
-                        <a href="'.$link.'">
-                            <i class="fa-solid fa-trash"></i> 
-                        </a>
-                        </div> 
-                    </div> 
-                </div>';
-        $i++;
-    }
-    $tong_formatted = number_format($tong, 0, ',', '.');
-
-    $ttgh .= '<form id="paymentForm" action="order.php" method="post">
-        <div class="total-section">
-            <div class="total-row">
-                <h4>Tổng: </h4>
-                <h4>'.$tong_formatted.' đ</h4>
-            </div>
-            <div class="cart-summary-button">
-                <input type="submit" value="Thanh toán" name="dathang" style="color: #fff;" class="btn">  
-            </div>
-          </div>
-          </form>';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./assets/main.css">
     <link rel="stylesheet" href="./assets/style.css">
-    <title>Giỏ Hàng</title>
+    <title>Thanh toán</title>
 </head>
 <body>
     <style>
@@ -265,11 +196,12 @@ i.fa-light {
     padding: 0px;
     border-radius: 8px;
     background-color: #f9f9f9;
-    top: 345px;
+    top: 315px;
+    height: 436px;
 }
 
 .left-box {
-    left: 0;
+    left: 182px;
 }
 
 .right-box {
@@ -288,11 +220,11 @@ i.fa-light {
 }
 
 .thongtinnhanhang td {
-    padding: 8px;
+    padding: 10px;
 }
 
 .thongtinnhanhang td:first-child {
-    width: 20%; /* Độ rộng cố định cho cột 'Họ tên' */
+    width: 32%; /* Độ rộng cố định cho cột 'Họ tên' */
 }
 
 .thongtinnhanhang input[type="text"] {
@@ -384,8 +316,10 @@ i.fa-light {
 }
 
     </style>
-    <!-- BEM -->
-    <div class="main">
+
+<div class="main">
+        <header class="header">
+        <div class="main">
         <header class="header">
             <div class="grid" style="width: 817px;">
                 <a href="./PetShopBoom.php" target="_self" class="logo">
@@ -437,19 +371,60 @@ i.fa-light {
                     </ul>    
                 </nav>
             </div>
-                    <div class="right-box">
-                        <!-- Giỏ hàng -->
-                        <h1 style="left: 35px;position: relative;">Giỏ hàng của tôi</h1>
-                        <?php echo $ttgh; ?>
-                        
-                    </div>
+            <!-- Form thông tin nhận hàng và giỏ hàng -->
+            <div class="grid">
+                <div class="containe">
+                    <div class="left-box">
+                        <!-- Form thông tin nhận hàng -->
+                        <div class="boxtrai mr" id="bill">
+                            <form action="bill.php" method="post">
+                            <div class="lay">
+    <h1>THÔNG TIN NHẬN HÀNG</h1>
+    <table class="thongtinnhanhang">
+        <tr>
+            <td>Họ tên người nhận:</td>
+            <td><input type="text" name="hoten" required></td>
+        </tr>
+        <tr>
+            <td>Địa chỉ nhận hàng:</td>
+            <td><input type="text" name="diachi" required></td>
+        </tr>
+        <tr>
+            <td>Điện thoại người nhận:</td>
+            <td><input type="text" name="dienthoai" required></td>
+        </tr>
+        <tr>
+            <td>Email người dùng:</td>
+            <td><input type="text" name="email" required></td>
+        </tr>
+        
+    </table>
+    
+    <!-- Phần phương thức thanh toán -->
+    <h1>PHƯƠNG THỨC THANH TOÁN</h1>
+    <input type="radio" id="phuongthuc1" name="phuongthuc" value="Thanh toán khi nhận hàng" required>
+    <label for="phuongthuc1">Thanh toán khi nhận hàng</label><br>
+    
+    <input type="radio" id="phuongthuc2" name="phuongthuc" value="Chuyển khoản ngân hàng" required>
+    <label for="phuongthuc2">Chuyển khoản ngân hàng</label><br>
+    
+    <input type="radio" id="phuongthuc3" name="phuongthuc" value="Thanh toán qua thẻ tín dụng" required>
+    <label for="phuongthuc3">Thanh toán qua thẻ tín dụng</label><br>
+    
+    <!-- Add more payment methods as needed -->
+    
+    <input type="submit" value="Thanh toán" name="" style="color: #fff;left: 213px;position: relative;" class="btn">
+</div>
+
+                            </div>   
+                        </div>
                 </div>
             </div>
         </form>
     </header>  
 </div>
 <!-- footer -->
-<footer class="footer" style="top: 535px; position: relative;">
+<footer class="footer" style="top: 610px; position: relative;">
             <div class="grid">
                 <div class="grid__row">
                     <div class="grid__column-2-4">
@@ -540,5 +515,3 @@ i.fa-light {
             </div>
         </footer>
 </div>
-</body>
-</html>

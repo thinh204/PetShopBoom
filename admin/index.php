@@ -169,9 +169,9 @@
             case 'donhang':
                 include "view/donhang.php";
                 break;
-                case 'thoat':
-                    include "view/thoat.php";
-                    break;
+            case 'thoat':
+                include "view/thoat.php";
+                break;
             default:
                 include "view/home.php";
                 break;
