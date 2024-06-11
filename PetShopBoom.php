@@ -138,11 +138,18 @@
                         <div class="modal-content">
                             <span class="close" onclick="closeModal('productModal1')">&times;</span>
                             <h2>Chi Tiết Sản Phẩm</h2>
-                            <div class="product-details">
-                                <p><strong>Tên sản phẩm:</strong> GORDEN CÁI</p>
-                                <p><strong>Giá:</strong> 1.140.000 đ</p>
-                                <p><strong>Mô tả:</strong> </p>
-                            <!-- Thêm chi tiết sản phẩm khác nếu cần -->
+                            <div class="product-details-container">
+                                <img src="./assets/Image/img6.jpg" alt="Ảnh sản phẩm" class="product-image">
+                                <div class="product-details">    
+                                    <p><strong>Tên sản phẩm:</strong> GORDEN CÁI</p>
+                                    <p><strong>Mã đơn hảng:</strong> ID:SP00100</p>
+                                    <p><strong>Tình trạng:</strong> Còn 1 hàng</p>
+                                    <p><strong>Giá:</strong> 1.140.000 đ</p>
+                                    <!-- Thêm chi tiết sản phẩm khác nếu cần -->
+                                    <a href="login.php" rel="noffolw" data-product-id="86466" data-product-sku="SP00596" data-quantity="1" class="button addcart-link shop-button bg-color product_type_simple add_to_cart_button s7upf_ajax_add_to_cart product_type_simple" data-title="PHỐC SỐC TRẮNG">
+                                        <span>Mua Hàng</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -384,7 +391,7 @@
             <!-- BACK 2 -->
             <div class="wpb-raw-code wpb_content_element ">
                 <div class="wpb-wrapper">
-                    <a href="#" class="shop-button bg-color arrow-right block-right">
+                    <a href="#" class="shop-button bg-color arrow-right block-right" style="right: 23px">
                         Xem thêm
                     </a>
                 </div>

@@ -44,23 +44,37 @@
         display: none;
     }
 
+    .product-details-container {
+    display: flex;
+    align-items: flex-start; /* Canh chi tiết sản phẩm ở đầu trên */
+    }
+
+    .product-image {
+        max-width: 200px; /* Định kích thước tối đa cho hình ảnh */
+        margin-right: 20px; /* Khoảng cách giữa hình ảnh và chi tiết sản phẩm */
+    }
+
     .modal-content {
         background-color: white;
         padding: 20px;
         border-radius: 5px;
         width: 80%;
         max-width: 500px;
+        display: flex;
+        flex-direction: column;
     }
 
     .close {
-        float: right;
         font-size: 20px;
         cursor: pointer;
+        left: 429px;
+        position: relative;
+        font-weight: 700;
+        font-size: 3rem;
     }
 
     .product-details {
-        margin-top: 20px;
-        text-align: left;
+    flex-grow: 1; /* Chiếm phần còn lại của không gian */
     }
     
     </style>
