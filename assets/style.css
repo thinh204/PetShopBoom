@@ -1,0 +1,55 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #343940;
+    --primamy-color: #dd8dbe;
+    --post-color: #9cc914;
+}
+
+* {
+    box-sizing: inherit;
+    outline: none;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+.grid {
+    width: 817px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -80px;
+    margin-right: -140px;
+}
+
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+@media screen and (max-width: 1200px) {
+    /* Đặt CSS của bạn ở đây */
+    body {
+        font-size: 16px;
+    }
+    .container {
+        width: 90%;
+    }
+    /* Và các quy tắc CSS khác */
+}
+
+

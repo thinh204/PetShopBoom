@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+}
+
+header {
+    float: left;
+    width: 100%;
+    background-color: #CCC;
+    margin-bottom: 5px;
+    padding: 20px;
+}
+
+footer {
+    float: left;
+    width: 100%;
+    background-color: #CCC;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.main {
+    float: left;
+    width: calc(100% - 100px);
+    padding: 0px 50px;
+}
+
+td,
+th {
+    padding: 8px;
+    border: 1px solid black;
+}
+
+th {
+    background-color: #999;
+}
+
+table {
+    border-collapse: collapse;
+}
