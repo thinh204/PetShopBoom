@@ -76,4 +76,5 @@ class User {
         }
     }
 }
-            
+// 1. git add .
+// 2. commit -u "Thinh first up"
