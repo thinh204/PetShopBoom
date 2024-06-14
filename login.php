@@ -175,12 +175,8 @@ input[type="submit"] {
                 echo '<div class="flash-message">' . $_SESSION[$key] . '</div>';
                 unset($_SESSION[$key]);
               }
-            }
-
-            if (isset($txt_erro)&&($txt_erro!="")){
-              echo "<font color='red'".$txt_erro."</font>";
-            }
-            
+            }    
+            showflash('login');
           ?>
             <input type="submit" name="submit" value="Đăng nhập">
             <div class="remember-forgot">

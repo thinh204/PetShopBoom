@@ -38,7 +38,7 @@
                             <img src="./assets/Image/'.$img.'" alt=""> 
                         </div> 
                             <p class="tensp">'.$tensp.'</p> 
-                            <p class="id">ID: ' . $id . '</p>
+                            <p class="id">' . $id . '</p>
                                 <div class="gia">
                                     <span class="giagoc">'. $gia_formatted .'đ</span> 
                                 </div>
